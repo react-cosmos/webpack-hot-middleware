@@ -29,6 +29,9 @@ var applyOptions = {
     );
   },
   onErrored: function(data) {
+    if (typeof window.onHotReloadError === 'function') {
+      window.onHotReloadError();
+    }
     console.error(data.error);
     console.warn(
       'Ignored an error while updating module ' +
